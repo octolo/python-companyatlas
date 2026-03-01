@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-companyatlas"
+version = "0.1.0"
+description = "Django integration for company information lookup and enrichment"
+readme = "README.md"
+authors = [
+  { name = "Octolo", email = "dev@octolo.tech" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["django", "company", "enrichment", "lookup"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 3.2",
+  "Framework :: Django :: 4.0",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.0",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "Django>=3.2",
+  "python-companyatlas>=0.1.0",
+  "django-providerkit>=0.1.0",
+  "django-virtualqueryset>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hicinformatic/python-companyatlas"
+Repository = "https://github.com/hicinformatic/python-companyatlas"
+Documentation = "https://github.com/hicinformatic/python-companyatlas/tree/main/django-companyatlas#readme"
+Issues = "https://github.com/hicinformatic/python-companyatlas/issues"
+
+[tool.setuptools]
+license-files = ["../LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["django_companyatlas*"]
+exclude = ["tests*", "docs*"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+testpaths = ["tests"]

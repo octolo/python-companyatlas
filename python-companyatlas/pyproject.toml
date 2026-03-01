@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-companyatlas"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Octolo", email = "dev@octolo.tech"}
+]
+dependencies = [
+  "clicommands>=0.1.0",
+  "providerkit",
+]
+
+[project.scripts]
+companyatlas = "companyatlas.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/hicinformatic/python-companyatlas"
+Repository = "https://github.com/hicinformatic/python-companyatlas"
+Documentation = "https://github.com/hicinformatic/python-companyatlas/tree/main/python-companyatlas#readme"
+Issues = "https://github.com/hicinformatic/python-companyatlas/issues"
+
+[tool.setuptools]
+package-data = {companyatlas = [".commands.json"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*", "docs*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra --strict-markers"
+markers = [
+  "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+
